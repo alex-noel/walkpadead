@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Compile-time API check only. This never launches or activates Unity. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DefineConstants>UNITY_EDITOR;UNITY_EDITOR_OSX;UNITY_6000_3_OR_NEWER</DefineConstants>
+    <UnityEditorRoot Condition="'$(UnityEditorRoot)' == ''">../../.tools/Unity.app/Contents</UnityEditorRoot>
+    <TemplateAssemblies>$(UnityEditorRoot)/Resources/PackageManager/ProjectTemplates/libcache/com.unity.template.3d-cross-platform-17.0.14/ScriptAssemblies</TemplateAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/Walkpadead/Core/*.cs" />
+    <Compile Include="../../Assets/Walkpadead/Runtime/*.cs" />
+    <Compile Include="../../Assets/Walkpadead/Editor/*.cs" />
+    <Compile Include="../../Assets/Walkpadead/Tests/PlayMode/*.cs" />
+    <Reference Include="$(UnityEditorRoot)/Resources/Scripting/Managed/UnityEngine/*.dll" />
+    <Reference Include="$(TemplateAssemblies)/*.dll" />
+    <Reference Include="../../Library/ScriptAssemblies/Unity.XR.*.dll" />
+    <Reference Include="$(UnityEditorRoot)/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll" />
+    <Reference Include="$(UnityEditorRoot)/Resources/PackageManager/BuiltInPackages/com.unity.ext.nunit/net40/unity-custom/nunit.framework.dll" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+{
+  "name": "Walkpadead.Runtime",
+  "rootNamespace": "Walkpadead.Game",
+  "references": ["Walkpadead.Core", "Unity.InputSystem", "UnityEngine.UI"],
+  "autoReferenced": true
+}
